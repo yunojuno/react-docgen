@@ -46,6 +46,7 @@ type ParserOptions = {
 export type Options = {
   cwd?: string,
   filename?: string,
+  useFileSystemConfig?: boolean,
   parserOptions?: ParserOptions,
 };
 
@@ -60,6 +61,7 @@ function buildOptions({
 
   if (parserOptions) {
     options = {
+      useFileSystemConfig: true,
       ...parserOptions,
       plugins: parserOptions.plugins ? [...parserOptions.plugins] : [],
     };
@@ -93,6 +95,7 @@ export default function buildParse(options?: Options = {}) {
         parserOpts,
         cwd: options.cwd,
         filename: options.filename,
+        babelrc: options.useFileSystemConfig,
       });
     },
   };
