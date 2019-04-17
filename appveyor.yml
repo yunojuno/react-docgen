@@ -4,5 +4,4 @@ install:
 
 test_script:
   - yarn test:ci
-
 build: off
