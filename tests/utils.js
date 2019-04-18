@@ -17,10 +17,7 @@ function stringify(value) {
  */
 export function parse(src, recast = _recast, options = {}) {
   return new recast.types.NodePath(
-    recast.parse(stringify(src), {
-      parser: buildParser(options),
-      lineTerminator: '\n',
-    }).program,
+    recast.parse(stringify(src), { parser: buildParser(options) }).program,
   );
 }
 

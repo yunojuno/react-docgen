@@ -14,7 +14,7 @@
 const DOCLET_PATTERN = /^@(\w+)(?:$|\s((?:[^](?!^@\w))*))/gim;
 
 function parseDocblock(str) {
-  const lines = str.split('\n');
+  const lines = str.replace(/(\r\n|\r)/, '\n').split('\n');
   for (let i = 0, l = lines.length; i < l; i++) {
     lines[i] = lines[i].replace(/^\s*\*\s?/, '');
   }
