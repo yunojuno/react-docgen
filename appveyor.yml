@@ -3,5 +3,5 @@ install:
   - yarn
 
 test_script:
-  - yarn test:ci
+  - yarn test --runInBand
 build: off
